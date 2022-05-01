@@ -1,0 +1,20 @@
+PODS:
+  - Alamofire (5.5.0)
+  - WaterfallGrid (1.0.1)
+
+DEPENDENCIES:
+  - Alamofire
+  - WaterfallGrid (~> 1.0.0)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - WaterfallGrid
+
+SPEC CHECKSUMS:
+  Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
+  WaterfallGrid: 0554a759d9a8aa136fc1769480ddb01bc6fb94b9
+
+PODFILE CHECKSUM: bf124a10419926443d0dfa4d6fbee5ea787a6953
+
+COCOAPODS: 1.11.2
