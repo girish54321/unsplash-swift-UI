@@ -28,7 +28,7 @@ struct ContentView: View {
                 Image(systemName: "house.fill")
                 Text("Home")
            }
-           BlueView()
+            UsersView()
              .tabItem {
                 Image(systemName: "flame.fill")
                 Text("Tranding")

@@ -18,6 +18,10 @@
 		F4525EDA281EA49B008C52DF /* HomeImageRespone.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4525ED9281EA49B008C52DF /* HomeImageRespone.swift */; };
 		F4525EDF281EB86F008C52DF /* AppNetworkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4525EDE281EB86F008C52DF /* AppNetworkImage.swift */; };
 		F4525EE1281EB8A4008C52DF /* UiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4525EE0281EB8A4008C52DF /* UiHelper.swift */; };
+		F4AA9C36281FD61A004805EA /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AA9C35281FD61A004805EA /* Users.swift */; };
+		F4AA9C38281FD6A8004805EA /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AA9C37281FD6A8004805EA /* UserView.swift */; };
+		F4AA9C3A281FD6B0004805EA /* UsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AA9C39281FD6B0004805EA /* UsersView.swift */; };
+		F4AA9C3C281FD6B6004805EA /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AA9C3B281FD6B6004805EA /* UsersViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +38,10 @@
 		F4525ED9281EA49B008C52DF /* HomeImageRespone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeImageRespone.swift; sourceTree = "<group>"; };
 		F4525EDE281EB86F008C52DF /* AppNetworkImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNetworkImage.swift; sourceTree = "<group>"; };
 		F4525EE0281EB8A4008C52DF /* UiHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiHelper.swift; sourceTree = "<group>"; };
+		F4AA9C35281FD61A004805EA /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		F4AA9C37281FD6A8004805EA /* UserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		F4AA9C39281FD6B0004805EA /* UsersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersView.swift; sourceTree = "<group>"; };
+		F4AA9C3B281FD6B6004805EA /* UsersViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
 		F6EDA17043A9B75E266DFDDC /* Pods-UnsPlashSwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnsPlashSwiftUI.release.xcconfig"; path = "Target Support Files/Pods-UnsPlashSwiftUI/Pods-UnsPlashSwiftUI.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +95,7 @@
 		F4525EBE281E8F44008C52DF /* UnsPlashSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				F4AA9C2A281FD5A5004805EA /* Demo */,
 				F4525EDB281EB84B008C52DF /* Views */,
 				F4525ED6281EA317008C52DF /* Screens */,
 				F4525ED5281EA30C008C52DF /* Modal */,
@@ -147,6 +156,17 @@
 				F4525EE0281EB8A4008C52DF /* UiHelper.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		F4AA9C2A281FD5A5004805EA /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				F4AA9C3B281FD6B6004805EA /* UsersViewModel.swift */,
+				F4AA9C39281FD6B0004805EA /* UsersView.swift */,
+				F4AA9C37281FD6A8004805EA /* UserView.swift */,
+				F4AA9C35281FD61A004805EA /* Users.swift */,
+			);
+			path = Demo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,12 +284,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4525EC2281E8F44008C52DF /* ContentView.swift in Sources */,
+				F4AA9C3C281FD6B6004805EA /* UsersViewModel.swift in Sources */,
+				F4AA9C36281FD61A004805EA /* Users.swift in Sources */,
 				F4525EDF281EB86F008C52DF /* AppNetworkImage.swift in Sources */,
 				F4525ED8281EA330008C52DF /* HomeScreen.swift in Sources */,
 				F4525ED4281EA2F6008C52DF /* AppConst.swift in Sources */,
 				F4525EC0281E8F44008C52DF /* UnsPlashSwiftUIApp.swift in Sources */,
 				F4525ED1281EA2BD008C52DF /* ApiError.swift in Sources */,
+				F4AA9C38281FD6A8004805EA /* UserView.swift in Sources */,
 				F4525EDA281EA49B008C52DF /* HomeImageRespone.swift in Sources */,
+				F4AA9C3A281FD6B0004805EA /* UsersView.swift in Sources */,
 				F4525EE1281EB8A4008C52DF /* UiHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
