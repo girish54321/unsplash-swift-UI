@@ -16,21 +16,21 @@ struct AppNetworkImage: View {
             case .success(let image):
                 image
                     .imageModifier()
-                    .transition(.scale)
-            case .failure(_):
-                Image(systemName: "ant.circle.fill")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 300, height: 300)
-            case .empty:
-                Image(systemName: "photo.circle.fill")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 300, height: 300)
+                    .transition(.opacity)
+//            case .failure(_):
+//                Image(systemName: "ant.circle.fill")
+//                    .resizable()
+//                    .scaledToFit()
+//                    .frame(width: 250, height: 300)
+//            case .empty:
+//                Image(systemName: "photo.circle.fill")
+//                    .resizable()
+//                    .scaledToFit()
+//                    .frame(width: 250, height: 300)
             @unknown default:
                 ProgressView()
                     .scaledToFit()
-                    .frame(width: 300, height: 300)
+                    .frame(width: 250, height: 300)
             }
         }
     }
