@@ -38,13 +38,13 @@ struct SelectedImage: View {
                     Button(action: {
                         isShowingSettings = true
                     }, label: {
-                        Text("+")
-                            .font(.system(.largeTitle))
-                            .frame(width: 57, height: 50)
-                            .foregroundColor(Color.white)
-                            .padding(.bottom, 7)
+                        Image("download")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 38, height: 38)
+                            .padding()
                     })
-                    .background(Color.blue)
+                    .background(Color.white)
                     .cornerRadius(38.5)
                     .padding()
                     .shadow(color: Color.black.opacity(0.3),
@@ -52,7 +52,11 @@ struct SelectedImage: View {
                             x: 3,
                             y: 3)
                     .sheet(isPresented: $isShowingSettings) {
-                        DownloadImage()
+                            let url1 = DownlodClass(title: "Small", subTitle: "Smallest size", url: "", size: "1MB+",color: .blue)
+                            let url2 = DownlodClass(title: "Regular", subTitle: "For mobile wallpaper", url:"", size: "3MB+",color: .yellow)
+                            let url3 = DownlodClass(title: "Full", subTitle: "For Desktop", url:  "", size: "6MB+",color: .orange)
+                            let url4 = DownlodClass(title: "Raw", subTitle: "Original file", url:  "", size: "10MB+",color: .red)
+                        DownloadImage(url1: url1, url2: url2, url3: url3, url4: url4)
                     }
                 }
             }
@@ -70,9 +74,9 @@ struct SelectedImage: View {
 
 struct SelectedImage_Previews: PreviewProvider {
     
-    
-    
     static var previews: some View {
-        SelectedImage(image: SelectedImageClass(id: "", createdAt: nil, updatedAt: nil, promotedAt: nil, width: nil, height: 12, color: "", blur_hash: "", homeImageDescription: "", altDescription: "", description: "", urls: Urls(raw: "", full: "", regular: "", small: nil, thumb: ""), user: nil, categories: nil))
+        Group {
+            SelectedImage(image: SelectedImageClass(id: "", createdAt: nil, updatedAt: nil, promotedAt: nil, width: nil, height: 12, color: "", blur_hash: "", homeImageDescription: "", altDescription: "", description: "", urls: Urls(raw: "", full: "", regular: "", small: nil, thumb: ""), user: nil, categories: nil))
+        }
     }
 }

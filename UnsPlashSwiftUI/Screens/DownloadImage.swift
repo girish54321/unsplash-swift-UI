@@ -9,13 +9,12 @@ import SwiftUI
 
 struct DownloadImage: View {
     
-    var url: Urls = Urls(raw: "", full: "", regular: "", small: "", thumb: "")
+    @Environment(\.presentationMode) var presentationMode
     
-    let url1 = DownlodClass(title: "Small", subTitle: "Smallest size", url: "", size: "1MB+",color: .blue)
-    let url2 = DownlodClass(title: "Regular", subTitle: "For mobile wallpaper", url:"", size: "3MB+",color: .yellow)
-    let url3 = DownlodClass(title: "Full", subTitle: "For Desktop", url:  "", size: "6MB+",color: .orange)
-    let url4 = DownlodClass(title: "Raw", subTitle: "Original file", url:  "", size: "10MB+",color: .red)
-    
+    var url1: DownlodClass
+    var url2: DownlodClass
+    var url3: DownlodClass
+    var url4: DownlodClass
     
     var body: some View {
         NavigationView {
@@ -28,18 +27,25 @@ struct DownloadImage: View {
             .navigationBarTitleDisplayMode(.large)
             .navigationBarItems(
                 trailing:
-                    NavigationLink(destination:
-                                    Text("Search")
-                                  ) {
-                                      Image(systemName: "xmark")
-                                  }
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        Image(systemName: "xmark")
+                            .scaledToFit()
+                    })
             )
         }
     }
 }
 
-struct DownloadImage_Previews: PreviewProvider {
-    static var previews: some View {
-        DownloadImage()
-    }
-}
+//struct DownloadImage_Previews: PreviewProvider {
+//    
+//        var url1 = DownlodClass(title: "Small", subTitle: "Smallest size", url: "", size: "1MB+",color: .blue)
+//        var url2 = DownlodClass(title: "Regular", subTitle: "For mobile wallpaper", url:"", size: "3MB+",color: .yellow)
+//        var url3 = DownlodClass(title: "Full", subTitle: "For Desktop", url:  "", size: "6MB+",color: .orange)
+//        var url4 = DownlodClass(title: "Raw", subTitle: "Original file", url:  "", size: "10MB+",color: .red)
+//    
+//    static var previews: some View {
+//            DownloadImage(url1: url1, url2: url1, url3: url1, url4: url1)
+//    }
+//}

@@ -13,11 +13,10 @@ struct SearchImageScreen: View {
     
     @State private var searchText = ""
     @State var newPhotos:[Result] = []
-    @State var pageNumber : Int = 0
+    @State var pageNumber : Int = 1
     var body: some View {
-        VStack {
-            //            Text("Searching for \(searchText)")
-            ScrollView(.vertical, showsIndicators: false) {
+        ScrollView {
+            LazyVStack{
                 WaterfallGrid(newPhotos) { item in
                     NavigationLink(destination:
                                     SelectedImage(image: SelectedImageClass(id: item.id, createdAt: item.createdAt, updatedAt: item.updatedAt, promotedAt: item.promotedAt, width: item.width, height: item.height, color: item.color, blur_hash: item.blur_hash, homeImageDescription: "", altDescription: item.altDescription, description: "", urls: item.urls, user: item.user, categories: item.categories))
@@ -34,18 +33,19 @@ struct SearchImageScreen: View {
                 .scrollOptions(direction: .vertical)
                 .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 8))
                 Button("Load More") {
+                    print("page")
+                    print(pageNumber)
                     getSearchPhotos(page: pageNumber)
                 }
                 .padding()
+                
             }
+            .searchable(text: $searchText)
+            .onSubmit(of: .search) {
+                getSearchPhotos(page: pageNumber)
+            }
+            .navigationTitle("Searchable Example")
         }
-        .searchable(text: $searchText)
-        .onSubmit(of: .search) {
-            print("Search submitted")
-            print(searchText)
-            getSearchPhotos(page: pageNumber)
-        }
-        .navigationTitle("Searchable Example")
     }
     
     func getSearchPhotos(page:Int) {
@@ -58,11 +58,12 @@ struct SearchImageScreen: View {
         AF.request(AppConst.baseurl+AppConst.search,method: .get,parameters: parameters).validate().responseDecodable(of: SearchImageResponse.self) { (response) in
             print(response)
             guard let data = response.value else {
-                print("Error")
-                print(response)
                 return
             }
-            self.newPhotos.append(contentsOf: data.results!)
+            withAnimation {
+                self.newPhotos.append(contentsOf: data.results!)
+                pageNumber = pageNumber + 1
+            }
         }
     }
 }

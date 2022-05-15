@@ -1,32 +1,27 @@
 //
-//  HomeScreen.swift
+//  TopicsScreen.swift
 //  UnsPlashSwiftUI
 //
-//  Created by Girish Parate on 01/05/22.
+//  Created by Girish Parate on 15/05/22.
 //
 
 import SwiftUI
 import Alamofire
 import WaterfallGrid
 
-struct HomeScreen: View {
+struct TopicsScreen: View {
     
-    @State var newPhotos: [HomeImage] = []
-    @State var pageNumber : Int = 1
-    @State var isPageRefreshing : Bool = false
-    @State var didAppear = false
-    
-    @StateObject var homeImageVm = HomeScreenViewModel()
+    @State var topicsData : [TopicResponseElement] = []
     
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
                 LazyVStack {
-                    WaterfallGrid(newPhotos) { item in
+                    WaterfallGrid(topicsData) { item in
                         NavigationLink(destination:
-                                        SelectedImage(image: SelectedImageClass(id: item.id, createdAt: item.createdAt, updatedAt: item.updatedAt, promotedAt: item.promotedAt, width: item.width, height: item.height, color: item.color, blur_hash: item.blur_hash, homeImageDescription: item.homeImageDescription, altDescription: item.altDescription, description: item.description, urls: item.urls, user: item.user, categories: item.categories))
+                                        SelectedImage(image: SelectedImageClass(id: item.id, createdAt: nil, updatedAt: item.updatedAt, promotedAt: item.promotedAt, width: item.width, height: item.height, color: item.color, blur_hash: item.blur_hash, homeImageDescription: item.homeImageDescription, altDescription: item.altDescription, description: item.description, urls: item.urls, user: item.user, categories: item.categories))
                         ) {
-                            AppNetworkImage(imageUrl: item.urls?.small ?? "")
+                            AppNetworkImage(imageUrl: item.coverPhoto?.urls?.regular ?? "")
                         }
                     }
                     .gridStyle(
@@ -39,7 +34,7 @@ struct HomeScreen: View {
                 .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 8))
                 }
                 Button("Load More") {
-                    getHomePhotos(page: pageNumber)
+                    getTopicsPhotos()
                 }
                 .padding()
             }
@@ -61,30 +56,24 @@ struct HomeScreen: View {
         }
     }
     
-    func getHomePhotos(page:Int) {
+    func getTopicsPhotos() {
         let parameters: [String: Any] = [
             "client_id" : AppConst.clinetid,
-            "order_by": "latest",
-            "page":String(page),
-            "per_page":"20"
+            "per_page" : 50
         ]
-        AF.request(AppConst.baseurl+AppConst.photoUrl,method: .get,parameters: parameters).validate().responseDecodable(of: [HomeImage].self) { (response) in
+        AF.request(AppConst.baseurl+AppConst.topics,method: .get,parameters: parameters).validate().responseDecodable(of: [TopicResponseElement].self) { (response) in
             guard let data = response.value else {
-                isPageRefreshing = false
+                print("Topic Error")
                 return
             }
-            withAnimation {
-//                newPhotos.append(contentsOf: data)
-                isPageRefreshing = false
-                pageNumber = pageNumber + 1
-            }
-            newPhotos.append(contentsOf: data)
+//            topicsData.append(contentsOf: data)
+            topicsData.append(contentsOf: data)
         }
     }
 }
 
-struct HomeScreen_Previews: PreviewProvider {
+struct TopicsScreen_Previews: PreviewProvider {
     static var previews: some View {
-        HomeScreen()
+        TopicsScreen()
     }
 }

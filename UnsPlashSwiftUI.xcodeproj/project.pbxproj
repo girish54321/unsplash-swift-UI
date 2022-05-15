@@ -34,6 +34,8 @@
 		F4AA9C44281FF9CE004805EA /* SelctedImageModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AA9C43281FF9CE004805EA /* SelctedImageModal.swift */; };
 		F4AA9C46281FFC93004805EA /* ReadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AA9C45281FFC93004805EA /* ReadData.swift */; };
 		F4AA9C48281FFCA6004805EA /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = F4AA9C47281FFCA6004805EA /* data.json */; };
+		F4AECAEC2830F13D008394A5 /* HotImageScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AECAEB2830F13D008394A5 /* HotImageScreen.swift */; };
+		F4C5E56928315107004FFE7C /* TopicsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C5E56828315107004FFE7C /* TopicsScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +68,8 @@
 		F4AA9C43281FF9CE004805EA /* SelctedImageModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelctedImageModal.swift; sourceTree = "<group>"; };
 		F4AA9C45281FFC93004805EA /* ReadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadData.swift; sourceTree = "<group>"; };
 		F4AA9C47281FFCA6004805EA /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		F4AECAEB2830F13D008394A5 /* HotImageScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotImageScreen.swift; sourceTree = "<group>"; };
+		F4C5E56828315107004FFE7C /* TopicsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsScreen.swift; sourceTree = "<group>"; };
 		F6EDA17043A9B75E266DFDDC /* Pods-UnsPlashSwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnsPlashSwiftUI.release.xcconfig"; path = "Target Support Files/Pods-UnsPlashSwiftUI/Pods-UnsPlashSwiftUI.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -178,6 +182,8 @@
 				F4AA9C41281FF951004805EA /* SelectedImage.swift */,
 				F48044CD2821225B004AAD86 /* DownloadImage.swift */,
 				F48044D32821431B004AAD86 /* SearchImageScreen.swift */,
+				F4AECAEB2830F13D008394A5 /* HotImageScreen.swift */,
+				F4C5E56828315107004FFE7C /* TopicsScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -333,6 +339,7 @@
 				F4525EC0281E8F44008C52DF /* UnsPlashSwiftUIApp.swift in Sources */,
 				F48044D42821431B004AAD86 /* SearchImageScreen.swift in Sources */,
 				F4AA9C44281FF9CE004805EA /* SelctedImageModal.swift in Sources */,
+				F4C5E56928315107004FFE7C /* TopicsScreen.swift in Sources */,
 				F4525ED1281EA2BD008C52DF /* ApiError.swift in Sources */,
 				F48044D928214869004AAD86 /* TopicResponse.swift in Sources */,
 				F48044D6282147DA004AAD86 /* SearchResponse.swift in Sources */,
@@ -341,6 +348,7 @@
 				F48044D0282126DE004AAD86 /* DownloadListItem.swift in Sources */,
 				F4AA9C3A281FD6B0004805EA /* UsersView.swift in Sources */,
 				F48044DA28214869004AAD86 /* TopicImageResponse.swift in Sources */,
+				F4AECAEC2830F13D008394A5 /* HotImageScreen.swift in Sources */,
 				F4525EE1281EB8A4008C52DF /* UiHelper.swift in Sources */,
 				F4AA9C46281FFC93004805EA /* ReadData.swift in Sources */,
 			);
