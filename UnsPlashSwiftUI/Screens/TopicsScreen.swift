@@ -12,17 +12,19 @@ import WaterfallGrid
 struct TopicsScreen: View {
     
     @State var topicsData : [TopicResponseElement] = []
+    @State var didAppear: Bool = false
     
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
                 LazyVStack {
                     WaterfallGrid(topicsData) { item in
-                        NavigationLink(destination:
-                                        SelectedImage(image: SelectedImageClass(id: item.id, createdAt: nil, updatedAt: item.updatedAt, promotedAt: item.promotedAt, width: item.width, height: item.height, color: item.color, blur_hash: item.blur_hash, homeImageDescription: item.homeImageDescription, altDescription: item.altDescription, description: item.description, urls: item.urls, user: item.user, categories: item.categories))
-                        ) {
-                            AppNetworkImage(imageUrl: item.coverPhoto?.urls?.regular ?? "")
-                        }
+                        NavigationLink(destination: SelectedTopicScreen(selectedTopic: item), label: {
+                            AppNetworkImage(
+                                imageUrl: item.coverPhoto?.urls?.regular ?? "",
+                                text: item.title ?? ""
+                            )
+                        })
                     }
                     .gridStyle(
                         columnsInPortrait: 2,
@@ -31,7 +33,7 @@ struct TopicsScreen: View {
                         animation: .linear(duration: 0.5)
                     )
                     .scrollOptions(direction: .vertical)
-                .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 8))
+                    .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 8))
                 }
                 Button("Load More") {
                     getTopicsPhotos()
@@ -40,11 +42,11 @@ struct TopicsScreen: View {
             }
             .onAppear(perform: {
                 if !didAppear {
-                    getHomePhotos(page: pageNumber)
+                    getTopicsPhotos()
                 }
                 didAppear = true
             })
-            .navigationBarTitle("Home", displayMode: .automatic)
+            .navigationBarTitle("Topic", displayMode: .automatic)
             .navigationBarItems(
                 trailing:
                     NavigationLink(destination:
@@ -66,7 +68,7 @@ struct TopicsScreen: View {
                 print("Topic Error")
                 return
             }
-//            topicsData.append(contentsOf: data)
+            //            topicsData.append(contentsOf: data)
             topicsData.append(contentsOf: data)
         }
     }

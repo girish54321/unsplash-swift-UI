@@ -9,5 +9,6 @@ target 'UnsPlashSwiftUI' do
   pod 'Alamofire'
   pod 'WaterfallGrid', '~> 1.0.0'
   pod 'BottomSheetSwiftUI'
+  pod 'NukeUI'
 
 end

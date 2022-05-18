@@ -1,4 +1,7 @@
 ${PODS_ROOT}/Target Support Files/Pods-UnsPlashSwiftUI/Pods-UnsPlashSwiftUI-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/BottomSheetSwiftUI/BottomSheetSwiftUI.framework
+${BUILT_PRODUCTS_DIR}/Gifu/Gifu.framework
+${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework
+${BUILT_PRODUCTS_DIR}/NukeUI/NukeUI.framework
 ${BUILT_PRODUCTS_DIR}/WaterfallGrid/WaterfallGrid.framework

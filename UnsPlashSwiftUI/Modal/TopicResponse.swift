@@ -7,7 +7,7 @@
 import Foundation
 
 // MARK: - TopicResponseElement
-struct TopicResponseElement: Decodable {
+struct TopicResponseElement: Decodable ,Identifiable {
     let id, slug, title, topicResponseDescription: String?
     let updatedAt, startsAt: String?
     let endsAt: String?

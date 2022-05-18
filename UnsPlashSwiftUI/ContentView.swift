@@ -33,12 +33,12 @@ struct ContentView: View {
                 Image(systemName: "flame.fill")
                 Text("Tranding")
           }
-          BlueView()
+            TopicsScreen()
               .tabItem {
                  Image(systemName: "menucard.fill")
                  Text("Topices")
            }
-           BlueView()
+            BlueView()
               .tabItem {
                  Image(systemName: "square.and.arrow.down.fill")
                  Text("Saved")

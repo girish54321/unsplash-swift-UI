@@ -178,11 +178,17 @@ code_sign_if_enabled() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/BottomSheetSwiftUI/BottomSheetSwiftUI.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Gifu/Gifu.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/NukeUI/NukeUI.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/WaterfallGrid/WaterfallGrid.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/BottomSheetSwiftUI/BottomSheetSwiftUI.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Gifu/Gifu.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/NukeUI/NukeUI.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/WaterfallGrid/WaterfallGrid.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
