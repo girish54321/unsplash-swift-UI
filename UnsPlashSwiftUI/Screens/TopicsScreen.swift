@@ -68,7 +68,6 @@ struct TopicsScreen: View {
                 print("Topic Error")
                 return
             }
-            //            topicsData.append(contentsOf: data)
             topicsData.append(contentsOf: data)
         }
     }

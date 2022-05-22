@@ -23,9 +23,6 @@ struct AppFileManager {
             do {
                 try pdfData?.write(to: actualPath, options: .atomic)
                 print("successfully saved!")
-//                vc.view.removeBluerLoader()
-//                UIHelper.loadLocalImages()
-//                Alert.showDonlodDoneAlert(on: vc)
             } catch {
                 print("could not be saved")
             }
@@ -45,4 +42,23 @@ struct ActivityViewController: UIViewControllerRepresentable {
 
     func updateUIViewController(_ uiViewController: UIActivityViewController, context: UIViewControllerRepresentableContext<ActivityViewController>) {}
 
+}
+
+class ImageSaver: NSObject {
+    
+    var successHandler: (() -> Void)?
+    var errorsHandler: ((Error) -> Void)?
+    
+    func writeToPhotoAlbum(image: UIImage) {
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(saveCompleted), nil)
+    }
+
+    @objc func saveCompleted(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        print("Save finished!")
+        if let error = error {
+            errorsHandler?(error)
+        }else {
+            successHandler?()
+        }
+    }
 }

@@ -36,7 +36,7 @@ struct HomeScreen: View {
                         animation: .linear(duration: 0.5)
                     )
                     .scrollOptions(direction: .vertical)
-                .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 8))
+                    .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 8))
                 }
                 Button("Load More") {
                     getHomePhotos(page: pageNumber)
@@ -74,7 +74,6 @@ struct HomeScreen: View {
                 return
             }
             withAnimation {
-//                newPhotos.append(contentsOf: data)
                 isPageRefreshing = false
                 pageNumber = pageNumber + 1
             }

@@ -16,36 +16,37 @@ struct SearchImageScreen: View {
     @State private var searchText = ""
     @State var newPhotos:[Result] = []
     @State var pageNumber : Int = 1
+    
     var body: some View {
         VStack {
             ScrollView {
-                    LazyVStack{
-                        WaterfallGrid(newPhotos) { item in
-                            NavigationLink(destination:
-                                            SelectedImage(image: SelectedImageClass(id: item.id, createdAt: item.createdAt, updatedAt: item.updatedAt, promotedAt: item.promotedAt, width: item.width, height: item.height, color: item.color, blur_hash: item.blur_hash, homeImageDescription: "", altDescription: item.altDescription, description: "", urls: item.urls, user: item.user, categories: item.categories))
-                            ) {
-                                AppNetworkImage(imageUrl: item.urls?.small ?? "")
-                            }
-                        }
-                        .gridStyle(
-                            columnsInPortrait: 2,
-                            columnsInLandscape: 3,
-                            spacing: 8,
-                            animation: .linear(duration: 0.5)
-                        )
-                        .scrollOptions(direction: .vertical)
-                        .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 8))
-                        if newPhotos.count > 0  {
-                            Button("Load More") {
-                                print("page")
-                                print(pageNumber)
-                                getSearchPhotos(page: pageNumber)
-                            }
-                            .padding()
-                        } else {
-                            Text("")
+                LazyVStack{
+                    WaterfallGrid(newPhotos) { item in
+                        NavigationLink(destination:
+                                        SelectedImage(image: SelectedImageClass(id: item.id, createdAt: item.createdAt, updatedAt: item.updatedAt, promotedAt: item.promotedAt, width: item.width, height: item.height, color: item.color, blur_hash: item.blur_hash, homeImageDescription: "", altDescription: item.altDescription, description: "", urls: item.urls, user: item.user, categories: item.categories))
+                        ) {
+                            AppNetworkImage(imageUrl: item.urls?.small ?? "")
                         }
                     }
+                    .gridStyle(
+                        columnsInPortrait: 2,
+                        columnsInLandscape: 3,
+                        spacing: 8,
+                        animation: .linear(duration: 0.5)
+                    )
+                    .scrollOptions(direction: .vertical)
+                    .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 8))
+                    if newPhotos.count > 0  {
+                        Button("Load More") {
+                            print("page")
+                            print(pageNumber)
+                            getSearchPhotos(page: pageNumber)
+                        }
+                        .padding()
+                    } else {
+                        Text("")
+                    }
+                }
                 if newPhotos.count == 0 {
                     Image("search")
                         .imageModifier()

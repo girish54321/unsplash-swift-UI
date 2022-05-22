@@ -9,6 +9,7 @@ import SwiftUI
 import BottomSheetSwiftUI
 import NukeUI
 import Nuke
+import AlertToast
 
 struct SelectedImage: View {
     
@@ -19,9 +20,7 @@ struct SelectedImage: View {
     @State private var isSharePresented: Bool = false
     @State var isLocalImage: Bool?
     @State var localImageURL: URL?
-    
-    @State var imageData : UIImage!
-    
+    @EnvironmentObject var viewModel: AlertViewModel
     var body: some View {
         ZStack {
             if isLocalImage == true {
@@ -70,14 +69,13 @@ struct SelectedImage: View {
             maxHeight: .infinity,
             alignment: .topLeading
         )
-      
         .navigationBarTitle(Text(image?.description ?? "NA"),displayMode: .inline)
         .navigationBarItems(
             trailing:
                 VStack {
                     if isLocalImage == true {
                         Button(action: {
-                            isSharePresented.toggle()
+                            saveToImageApp()
                         }, label: {
                             Image(systemName: "sdcard.fill")
                                 .scaledToFit()
@@ -87,16 +85,34 @@ struct SelectedImage: View {
                     }
                 }
         )
-        //        .fileMover(isPresented: $showingExporter, file: localImageURL) { result in
-        //            switch result {
-        //            case .success(let url):
-        //                print("Saved to \(url)")
-        //            case .failure(let error):
-        //                print(error.localizedDescription)
-        //            }
-        //        }
+        .toast(isPresenting: $viewModel.show){
+            viewModel.alertToast
+        }
     }
     
+    func saveToImageApp() {
+        var imageData : UIImage!;
+        do {
+            let imageUrl = try Data(contentsOf: localImageURL!)
+            imageData =  UIImage(data: imageUrl)
+        } catch {
+            print("Error loading image : \(error)")
+        }
+        let imageSever = ImageSaver()
+        
+        imageSever.successHandler = {
+            print("Go For It")
+            viewModel.alertToast = AlertToast(
+                displayMode: .banner(.pop),
+                type: .error(.blue),
+                title: "Image Saved",
+                subTitle: "Image is saved on your Camera Roll")
+        }
+        imageSever.errorsHandler = {
+            print("\($0.localizedDescription)")
+        }
+        imageSever.writeToPhotoAlbum(image: imageData)
+    }
 }
 
 struct SelectedImage_Previews: PreviewProvider {

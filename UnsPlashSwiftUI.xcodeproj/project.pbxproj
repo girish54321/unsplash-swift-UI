@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1A6F68E759E08D485633E860 /* Pods_UnsPlashSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 639F0CF7736489DE7B3C56BE /* Pods_UnsPlashSwiftUI.framework */; };
 		F40E72572834EE88004F2B9F /* SelectedTopicScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40E72562834EE88004F2B9F /* SelectedTopicScreen.swift */; };
+		F43031DB283A5E08006F861C /* GlobalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43031DA283A5E08006F861C /* GlobalState.swift */; };
 		F4497A95283908D400CFD0A6 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4497A94283908D400CFD0A6 /* FileManager.swift */; };
 		F4497A972839119E00CFD0A6 /* SavedImagesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4497A962839119E00CFD0A6 /* SavedImagesScreen.swift */; };
 		F4525EC0281E8F44008C52DF /* UnsPlashSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4525EBF281E8F44008C52DF /* UnsPlashSwiftUIApp.swift */; };
@@ -45,6 +46,7 @@
 		639F0CF7736489DE7B3C56BE /* Pods_UnsPlashSwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnsPlashSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC7EDA409E941B8430C238AF /* Pods-UnsPlashSwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnsPlashSwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-UnsPlashSwiftUI/Pods-UnsPlashSwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
 		F40E72562834EE88004F2B9F /* SelectedTopicScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTopicScreen.swift; sourceTree = "<group>"; };
+		F43031DA283A5E08006F861C /* GlobalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalState.swift; sourceTree = "<group>"; };
 		F4497A94283908D400CFD0A6 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		F4497A962839119E00CFD0A6 /* SavedImagesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedImagesScreen.swift; sourceTree = "<group>"; };
 		F4525EBC281E8F44008C52DF /* UnsPlashSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnsPlashSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +110,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		F43031D9283A5DF5006F861C /* GlobalState */ = {
+			isa = PBXGroup;
+			children = (
+				F43031DA283A5E08006F861C /* GlobalState.swift */,
+			);
+			path = GlobalState;
+			sourceTree = "<group>";
+		};
 		F4525EB3281E8F43008C52DF = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +139,7 @@
 		F4525EBE281E8F44008C52DF /* UnsPlashSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				F43031D9283A5DF5006F861C /* GlobalState */,
 				F4AA9C2A281FD5A5004805EA /* Demo */,
 				F4525EDB281EB84B008C52DF /* Views */,
 				F4525ED6281EA317008C52DF /* Screens */,
@@ -354,6 +365,7 @@
 				F4497A95283908D400CFD0A6 /* FileManager.swift in Sources */,
 				F4525ED1281EA2BD008C52DF /* ApiError.swift in Sources */,
 				F48044D928214869004AAD86 /* TopicResponse.swift in Sources */,
+				F43031DB283A5E08006F861C /* GlobalState.swift in Sources */,
 				F48044D6282147DA004AAD86 /* SearchResponse.swift in Sources */,
 				F4AA9C38281FD6A8004805EA /* UserView.swift in Sources */,
 				F4525EDA281EA49B008C52DF /* HomeImageRespone.swift in Sources */,
@@ -494,6 +506,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"UnsPlashSwiftUI/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "DO WHAT I SAY!";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -523,6 +536,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"UnsPlashSwiftUI/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "DO WHAT I SAY!";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
