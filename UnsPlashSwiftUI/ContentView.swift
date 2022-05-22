@@ -38,7 +38,7 @@ struct ContentView: View {
                  Image(systemName: "menucard.fill")
                  Text("Topices")
            }
-            BlueView()
+            SavedImagesScreen()
               .tabItem {
                  Image(systemName: "square.and.arrow.down.fill")
                  Text("Saved")

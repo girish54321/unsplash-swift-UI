@@ -45,16 +45,9 @@ struct AppNetworkImage: View {
                         .transition(.opacity)
                         .overlay(ImageOverlay(text: text), alignment: .topLeading)
                 }
-                //            case .failure(_):
-                //                Image(systemName: "ant.circle.fill")
-                //                    .resizable()
-                //                    .scaledToFit()
-                //                    .frame(width: 250, height: 300)
-                //            case .empty:
-                //                Image(systemName: "photo.circle.fill")
-                //                    .resizable()
-                //                    .scaledToFit()
-                //                    .frame(width: 250, height: 300)
+            case .failure(let error):
+                Text(error.localizedDescription)
+//                .frame(width: 250, height: 300)
             @unknown default:
                 ProgressView()
                     .scaledToFit()

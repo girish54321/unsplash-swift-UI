@@ -21,6 +21,9 @@ struct DownloadImage: View {
             List {
                 ForEach([url1,url2,url3,url4], id: \.self){ item in
                     DownloadListItem(title: item.title, des: item.subTitle, size: item.size,color: item.color)
+                        .onTapGesture {
+                            AppFileManager.saveImage(urlString: item.url, fileName: item.title)
+                        }
                 }
             }
             .navigationTitle("Download Image")
