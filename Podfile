@@ -11,5 +11,6 @@ target 'UnsPlashSwiftUI' do
   pod 'BottomSheetSwiftUI'
   pod 'NukeUI'
   pod 'AlertToast'
-
+  pod 'ActivityIndicatorView'
+  
 end

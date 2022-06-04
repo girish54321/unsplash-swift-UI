@@ -29,6 +29,7 @@
 		F48044D6282147DA004AAD86 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48044D5282147DA004AAD86 /* SearchResponse.swift */; };
 		F48044D928214869004AAD86 /* TopicResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48044D728214869004AAD86 /* TopicResponse.swift */; };
 		F48044DA28214869004AAD86 /* TopicImageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48044D828214869004AAD86 /* TopicImageResponse.swift */; };
+		F49363CC28426EEE009AA446 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49363CB28426EEE009AA446 /* LoadingView.swift */; };
 		F4AA9C36281FD61A004805EA /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AA9C35281FD61A004805EA /* Users.swift */; };
 		F4AA9C38281FD6A8004805EA /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AA9C37281FD6A8004805EA /* UserView.swift */; };
 		F4AA9C3A281FD6B0004805EA /* UsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AA9C39281FD6B0004805EA /* UsersView.swift */; };
@@ -39,6 +40,8 @@
 		F4AA9C46281FFC93004805EA /* ReadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AA9C45281FFC93004805EA /* ReadData.swift */; };
 		F4AA9C48281FFCA6004805EA /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = F4AA9C47281FFCA6004805EA /* data.json */; };
 		F4AECAEC2830F13D008394A5 /* HotImageScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AECAEB2830F13D008394A5 /* HotImageScreen.swift */; };
+		F4C4E8E5284B4EF8000147D9 /* LoadingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C4E8E4284B4EF8000147D9 /* LoadingListView.swift */; };
+		F4C4E8E7284B54F2000147D9 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C4E8E6284B54F2000147D9 /* LoadingIndicator.swift */; };
 		F4C5E56928315107004FFE7C /* TopicsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C5E56828315107004FFE7C /* TopicsScreen.swift */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +70,7 @@
 		F48044D5282147DA004AAD86 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		F48044D728214869004AAD86 /* TopicResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicResponse.swift; sourceTree = "<group>"; };
 		F48044D828214869004AAD86 /* TopicImageResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicImageResponse.swift; sourceTree = "<group>"; };
+		F49363CB28426EEE009AA446 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		F4AA9C35281FD61A004805EA /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		F4AA9C37281FD6A8004805EA /* UserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		F4AA9C39281FD6B0004805EA /* UsersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersView.swift; sourceTree = "<group>"; };
@@ -77,6 +81,8 @@
 		F4AA9C45281FFC93004805EA /* ReadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadData.swift; sourceTree = "<group>"; };
 		F4AA9C47281FFCA6004805EA /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		F4AECAEB2830F13D008394A5 /* HotImageScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotImageScreen.swift; sourceTree = "<group>"; };
+		F4C4E8E4284B4EF8000147D9 /* LoadingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingListView.swift; sourceTree = "<group>"; };
+		F4C4E8E6284B54F2000147D9 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		F4C5E56828315107004FFE7C /* TopicsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsScreen.swift; sourceTree = "<group>"; };
 		F6EDA17043A9B75E266DFDDC /* Pods-UnsPlashSwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnsPlashSwiftUI.release.xcconfig"; path = "Target Support Files/Pods-UnsPlashSwiftUI/Pods-UnsPlashSwiftUI.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -214,6 +220,9 @@
 				F4525EDE281EB86F008C52DF /* AppNetworkImage.swift */,
 				F4525EE0281EB8A4008C52DF /* UiHelper.swift */,
 				F48044CF282126DE004AAD86 /* DownloadListItem.swift */,
+				F49363CB28426EEE009AA446 /* LoadingView.swift */,
+				F4C4E8E4284B4EF8000147D9 /* LoadingListView.swift */,
+				F4C4E8E6284B54F2000147D9 /* LoadingIndicator.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -351,12 +360,14 @@
 				F4525EC2281E8F44008C52DF /* ContentView.swift in Sources */,
 				F4AA9C40281FDCB7004805EA /* AppNetWorking.swift in Sources */,
 				F4AA9C3C281FD6B6004805EA /* UsersViewModel.swift in Sources */,
+				F4C4E8E5284B4EF8000147D9 /* LoadingListView.swift in Sources */,
 				F4AA9C36281FD61A004805EA /* Users.swift in Sources */,
 				F4525EDF281EB86F008C52DF /* AppNetworkImage.swift in Sources */,
 				F4525ED8281EA330008C52DF /* HomeScreen.swift in Sources */,
 				F4525ED4281EA2F6008C52DF /* AppConst.swift in Sources */,
 				F48044D22821340A004AAD86 /* DownlodClass.swift in Sources */,
 				F48044CE2821225B004AAD86 /* DownloadImage.swift in Sources */,
+				F4C4E8E7284B54F2000147D9 /* LoadingIndicator.swift in Sources */,
 				F4525EC0281E8F44008C52DF /* UnsPlashSwiftUIApp.swift in Sources */,
 				F48044D42821431B004AAD86 /* SearchImageScreen.swift in Sources */,
 				F4AA9C44281FF9CE004805EA /* SelctedImageModal.swift in Sources */,
@@ -369,6 +380,7 @@
 				F48044D6282147DA004AAD86 /* SearchResponse.swift in Sources */,
 				F4AA9C38281FD6A8004805EA /* UserView.swift in Sources */,
 				F4525EDA281EA49B008C52DF /* HomeImageRespone.swift in Sources */,
+				F49363CC28426EEE009AA446 /* LoadingView.swift in Sources */,
 				F48044D0282126DE004AAD86 /* DownloadListItem.swift in Sources */,
 				F4AA9C3A281FD6B0004805EA /* UsersView.swift in Sources */,
 				F48044DA28214869004AAD86 /* TopicImageResponse.swift in Sources */,

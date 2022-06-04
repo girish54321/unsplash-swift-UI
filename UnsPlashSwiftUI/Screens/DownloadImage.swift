@@ -16,6 +16,11 @@ struct DownloadImage: View {
     var url3: DownlodClass
     var url4: DownlodClass
     
+//    var url1 = DownlodClass(title: "Small", subTitle: "Smallest size", url: "", size: "1MB+",color: .blue)
+//    var url2 = DownlodClass(title: "Regular", subTitle: "For mobile wallpaper", url:"", size: "3MB+",color: .yellow)
+//    var url3 = DownlodClass(title: "Full", subTitle: "For Desktop", url:  "", size: "6MB+",color: .orange)
+//    var url4 = DownlodClass(title: "Raw", subTitle: "Original file", url:  "", size: "10MB+",color: .red)
+    
     var body: some View {
         NavigationView {
             List {
@@ -49,6 +54,7 @@ struct DownloadImage: View {
 //        var url4 = DownlodClass(title: "Raw", subTitle: "Original file", url:  "", size: "10MB+",color: .red)
 //    
 //    static var previews: some View {
-//            DownloadImage(url1: url1, url2: url1, url3: url1, url4: url1)
+//            DownloadImage()
+////        DownloadImage(url1: url1, url2: url1, url3: url1, url4: url1)
 //    }
 //}

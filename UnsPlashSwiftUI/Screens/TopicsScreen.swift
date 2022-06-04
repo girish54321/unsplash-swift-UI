@@ -17,7 +17,6 @@ struct TopicsScreen: View {
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
-                LazyVStack {
                     WaterfallGrid(topicsData) { item in
                         NavigationLink(destination: SelectedTopicScreen(selectedTopic: item), label: {
                             AppNetworkImage(
@@ -34,11 +33,6 @@ struct TopicsScreen: View {
                     )
                     .scrollOptions(direction: .vertical)
                     .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 8))
-                }
-                Button("Load More") {
-                    getTopicsPhotos()
-                }
-                .padding()
             }
             .onAppear(perform: {
                 if !didAppear {

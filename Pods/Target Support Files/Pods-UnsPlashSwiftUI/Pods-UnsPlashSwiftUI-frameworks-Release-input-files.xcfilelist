@@ -1,4 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-UnsPlashSwiftUI/Pods-UnsPlashSwiftUI-frameworks.sh
+${BUILT_PRODUCTS_DIR}/ActivityIndicatorView/ActivityIndicatorView.framework
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/AlertToast/AlertToast.framework
 ${BUILT_PRODUCTS_DIR}/BottomSheetSwiftUI/BottomSheetSwiftUI.framework

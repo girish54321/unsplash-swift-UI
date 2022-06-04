@@ -27,7 +27,6 @@ struct ImageOverlay: View {
                 Text("")
             }
         }
-        //        .frame(width: .infinity, height: .infinity)
     }
 }
 

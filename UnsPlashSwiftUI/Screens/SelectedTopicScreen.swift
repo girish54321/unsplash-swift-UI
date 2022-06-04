@@ -38,7 +38,6 @@ struct SelectedTopicScreen: View {
                 }
             }
             .frame(height: 340)
-            LazyVStack {
                 WaterfallGrid(newPhotos) { item in
                     NavigationLink(destination:
                                     SelectedImage(image: SelectedImageClass(id: item.id, createdAt: item.createdAt, updatedAt: item.updatedAt, promotedAt: item.promotedAt, width: item.width, height: item.height, color: item.color, blur_hash: item.blur_hash, homeImageDescription: item.homeImageDescription, altDescription: item.altDescription, description: item.description, urls: item.urls, user: item.user, categories: item.categories))
@@ -54,6 +53,13 @@ struct SelectedTopicScreen: View {
                 )
                 .scrollOptions(direction: .vertical)
                 .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 8))
+            if isPageRefreshing == true {
+                LoadingIndicator()
+            } else {
+                Button("Load More") {
+                    getPhotos(page: pageNumber)
+                }
+                .padding()
             }
         }
         .onAppear(perform: {
@@ -75,7 +81,7 @@ struct SelectedTopicScreen: View {
     }
     
     func getPhotos(page:Int) {
-        print("API call")
+        isPageRefreshing = true
         let parameters: [String: Any] = [
             "client_id" : AppConst.clinetid,
             "page":String(page),
@@ -84,11 +90,13 @@ struct SelectedTopicScreen: View {
         AF.request(AppConst.baseurl+AppConst.topics+(selectedTopic?.id ?? "")+"/photos",method: .get,parameters: parameters).validate().responseDecodable(of:[HomeImage].self) { (response) in
             guard let data = response.value else {
                 print("api error")
+                isPageRefreshing = false
                 return
             }
             withAnimation {
-                self.newPhotos.append(contentsOf: data)
-                self.isPageRefreshing = false
+                newPhotos.append(contentsOf: data)
+                isPageRefreshing = false
+                pageNumber = pageNumber + 1
             }
         }
     }

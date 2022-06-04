@@ -19,23 +19,21 @@ struct HotImageScreen: View {
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
-                LazyVStack {
-                    WaterfallGrid(hotImages) { item in
-                        NavigationLink(destination:
-                                        SelectedImage(image: SelectedImageClass(id: item.id, createdAt: item.createdAt, updatedAt: item.updatedAt, promotedAt: item.promotedAt, width: item.width, height: item.height, color: item.color, blur_hash: item.blur_hash, homeImageDescription: item.homeImageDescription, altDescription: item.altDescription, description: item.description, urls: item.urls, user: item.user, categories: item.categories))
-                        ) {
-                            AppNetworkImage(imageUrl: item.urls?.small ?? "")
-                        }
+                WaterfallGrid(hotImages) { item in
+                    NavigationLink(destination:
+                                    SelectedImage(image: SelectedImageClass(id: item.id, createdAt: item.createdAt, updatedAt: item.updatedAt, promotedAt: item.promotedAt, width: item.width, height: item.height, color: item.color, blur_hash: item.blur_hash, homeImageDescription: item.homeImageDescription, altDescription: item.altDescription, description: item.description, urls: item.urls, user: item.user, categories: item.categories))
+                    ) {
+                        AppNetworkImage(imageUrl: item.urls?.small ?? "")
                     }
-                    .gridStyle(
-                        columnsInPortrait: 2,
-                        columnsInLandscape: 3,
-                        spacing: 8,
-                        animation: .linear(duration: 0.5)
-                    )
-                    .scrollOptions(direction: .vertical)
-                .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 8))
                 }
+                .gridStyle(
+                    columnsInPortrait: 2,
+                    columnsInLandscape: 3,
+                    spacing: 8,
+                    animation: .linear(duration: 0.5)
+                )
+                .scrollOptions(direction: .vertical)
+                .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 8))
                 Button("Load More") {
                     getHotPhotos(page: pageNumber)
                 }
