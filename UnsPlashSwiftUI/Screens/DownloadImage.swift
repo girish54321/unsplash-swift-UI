@@ -16,10 +16,10 @@ struct DownloadImage: View {
     var url3: DownlodClass
     var url4: DownlodClass
     
-//    var url1 = DownlodClass(title: "Small", subTitle: "Smallest size", url: "", size: "1MB+",color: .blue)
-//    var url2 = DownlodClass(title: "Regular", subTitle: "For mobile wallpaper", url:"", size: "3MB+",color: .yellow)
-//    var url3 = DownlodClass(title: "Full", subTitle: "For Desktop", url:  "", size: "6MB+",color: .orange)
-//    var url4 = DownlodClass(title: "Raw", subTitle: "Original file", url:  "", size: "10MB+",color: .red)
+    //    var url1 = DownlodClass(title: "Small", subTitle: "Smallest size", url: "", size: "1MB+",color: .blue)
+    //    var url2 = DownlodClass(title: "Regular", subTitle: "For mobile wallpaper", url:"", size: "3MB+",color: .yellow)
+    //    var url3 = DownlodClass(title: "Full", subTitle: "For Desktop", url:  "", size: "6MB+",color: .orange)
+    //    var url4 = DownlodClass(title: "Raw", subTitle: "Original file", url:  "", size: "10MB+",color: .red)
     
     var body: some View {
         NavigationView {
@@ -27,7 +27,9 @@ struct DownloadImage: View {
                 ForEach([url1,url2,url3,url4], id: \.self){ item in
                     DownloadListItem(title: item.title, des: item.subTitle, size: item.size,color: item.color)
                         .onTapGesture {
-                            AppFileManager.saveImage(urlString: item.url, fileName: item.title)
+                            //                            AppFileManager.saveImage(urlString: item.url, fileName: item.title)
+                            saveToPhone(imageUrl: item.url)
+                            
                         }
                 }
             }
@@ -43,6 +45,27 @@ struct DownloadImage: View {
                     })
             )
         }
+    }
+    
+    func saveToPhone(imageUrl: String)  {
+        let imageServer = ImageSaver()
+        var imageData : UIImage!;
+        do {
+            let imageUrl = try Data(contentsOf: URL(string: imageUrl)!)
+            imageData =  UIImage(data: imageUrl)
+        } catch {
+            print("Error loading image : \(error)")
+        }
+        
+        imageServer.successHandler = {
+            print("Its working")
+        }
+        
+        imageServer.errorsHandler = {
+            print("Oops! \($0.localizedDescription)")
+        }
+        
+        imageServer.writeToPhotoAlbum(image: imageData)
     }
 }
 
