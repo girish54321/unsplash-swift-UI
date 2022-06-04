@@ -83,6 +83,7 @@
 		F4AECAEB2830F13D008394A5 /* HotImageScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotImageScreen.swift; sourceTree = "<group>"; };
 		F4C4E8E4284B4EF8000147D9 /* LoadingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingListView.swift; sourceTree = "<group>"; };
 		F4C4E8E6284B54F2000147D9 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
+		F4C4E8E8284B9B43000147D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F4C5E56828315107004FFE7C /* TopicsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsScreen.swift; sourceTree = "<group>"; };
 		F6EDA17043A9B75E266DFDDC /* Pods-UnsPlashSwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnsPlashSwiftUI.release.xcconfig"; path = "Target Support Files/Pods-UnsPlashSwiftUI/Pods-UnsPlashSwiftUI.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -145,6 +146,7 @@
 		F4525EBE281E8F44008C52DF /* UnsPlashSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				F4C4E8E8284B9B43000147D9 /* Info.plist */,
 				F43031D9283A5DF5006F861C /* GlobalState */,
 				F4AA9C2A281FD5A5004805EA /* Demo */,
 				F4525EDB281EB84B008C52DF /* Views */,
@@ -518,6 +520,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"UnsPlashSwiftUI/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = UnsPlashSwiftUI/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "DO WHAT I SAY!";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -548,6 +552,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"UnsPlashSwiftUI/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = UnsPlashSwiftUI/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "DO WHAT I SAY!";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
