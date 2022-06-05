@@ -42,7 +42,7 @@ struct HomeScreen: View {
                 .scrollOptions(direction: .vertical)
                 .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 8))
                 if isPageRefreshing == true {
-                    LoadingIndicator()
+                    Text("")
                 } else {
                     Button("Load More") {
                         getHomePhotos(page: pageNumber)

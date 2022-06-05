@@ -1,9 +1,3 @@
-//File: ContentView.swift
-//Project: StretchyHeaderAndParallaxEffect
-
-//Created at 24.11.19 by BLCKBIRDS
-//Visit www.BLCKBIRDS.com for more.
-
 import SwiftUI
 import NukeUI
 import Alamofire
@@ -56,7 +50,7 @@ struct SelectedTopicScreen: View {
                 .scrollOptions(direction: .vertical)
                 .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 8))
             if isPageRefreshing == true {
-                LoadingIndicator()
+                Text("")
             } else {
                 Button("Load More") {
                     getPhotos(page: pageNumber)

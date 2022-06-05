@@ -69,7 +69,7 @@ struct SelectedImage: View {
             maxHeight: .infinity,
             alignment: .topLeading
         )
-        .navigationBarTitle(Text(image?.description ?? "NA"),displayMode: .inline)
+        .navigationBarTitle(Text(image?.description ?? "Image Viewer"),displayMode: .inline)
         .navigationBarItems(
             trailing:
                 VStack {

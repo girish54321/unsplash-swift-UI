@@ -12,22 +12,23 @@ struct DownloadImage: View {
     
     @Environment(\.presentationMode) var presentationMode
     
-        var url1: DownlodClass
-        var url2: DownlodClass
-        var url3: DownlodClass
-        var url4: DownlodClass
+    var url1: DownlodClass
+    var url2: DownlodClass
+    var url3: DownlodClass
+    var url4: DownlodClass
     
     @State private var presentingAlert = false
     
     @EnvironmentObject var viewModel: AlertViewModel
     
     @State private var isSharePresented: Bool = false
+    @State private var isDownloading: Bool = false
     
-//    var url1 = DownlodClass(title: "Small", subTitle: "Smallest size", url: "", size: "1MB+",color: .blue)
-//    var url2 = DownlodClass(title: "Regular", subTitle: "For mobile wallpaper", url:"", size: "3MB+",color: .yellow)
-//    var url3 = DownlodClass(title: "Full", subTitle: "For Desktop", url:  "", size: "6MB+",color: .orange)
-//    var url4 = DownlodClass(title: "Raw", subTitle: "Original file", url:  "", size: "10MB+",color: .red)
-//
+    //    var url1 = DownlodClass(title: "Small", subTitle: "Smallest size", url: "", size: "1MB+",color: .blue)
+    //    var url2 = DownlodClass(title: "Regular", subTitle: "For mobile wallpaper", url:"", size: "3MB+",color: .yellow)
+    //    var url3 = DownlodClass(title: "Full", subTitle: "For Desktop", url:  "", size: "6MB+",color: .orange)
+    //    var url4 = DownlodClass(title: "Raw", subTitle: "Original file", url:  "", size: "10MB+",color: .red)
+    //
     @State private var selectedUrl : DownlodClass = DownlodClass(title: "Raw", subTitle: "Original file", url:  "", size: "10MB+",color: .red)
     
     var body: some View {
@@ -60,11 +61,19 @@ struct DownloadImage: View {
                 Text("Select where to save image")
             }
             //Save to File
-            .sheet(isPresented: $isSharePresented, onDismiss: {
-                        print("Dismiss")
-                    }, content: {
-                        ActivityViewController(activityItems: [createImageData(imageUrl: selectedUrl.url)])
-                    })
+            .sheet(isPresented: $isSharePresented,
+                   onDismiss: {
+                isDownloading = false
+            }, content: {
+                ActivityViewController(activityItems: [createImageData(imageUrl: selectedUrl.url)])
+            })
+        }
+        .overlay {
+            if isDownloading == true {
+                LoadingIndicator()
+            } else {
+                VStack{}
+            }
         }
         .toast(isPresenting: $viewModel.show){
             viewModel.alertToast
@@ -72,6 +81,7 @@ struct DownloadImage: View {
     }
     
     func screecesMessage () {
+        isDownloading = false
         viewModel.alertToast = AlertToast(
             displayMode: .banner(.pop),
             type: .complete(.accentColor),
@@ -82,29 +92,27 @@ struct DownloadImage: View {
     
     // MARK: Save to App
     func saveToAppStoreage(){
+        isDownloading = true
         AppFileManager.saveImage(urlString: selectedUrl.url, fileName: selectedUrl.title)
         screecesMessage()
     }
     // MARK: Save to Files
     func saveToFiles() {
-        let imageData = createImageData(imageUrl: selectedUrl.url)
         isSharePresented.toggle()
-//        ActivityViewController(activityItems: [imageData])
-//        screecesMessage()
     }
     // MARK: Save to Phots app
     func saveToPhonePhotos()  {
+        isDownloading = true
         let imageServer = ImageSaver()
         let imageData = createImageData(imageUrl: selectedUrl.url)
         imageServer.successHandler = {
             print("Its working")
             screecesMessage()
         }
-        
         imageServer.errorsHandler = {
             print("Oops! \($0.localizedDescription)")
+            isDownloading = true
         }
-        
         imageServer.writeToPhotoAlbum(image: imageData)
     }
     
