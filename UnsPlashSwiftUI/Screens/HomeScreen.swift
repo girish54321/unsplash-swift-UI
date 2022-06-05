@@ -18,6 +18,8 @@ struct HomeScreen: View {
     
     @StateObject var homeImageVm = HomeScreenViewModel()
     
+    @EnvironmentObject var appStateStorage: AppStateStorage
+    
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
@@ -68,6 +70,7 @@ struct HomeScreen: View {
     
     func getHomePhotos(page:Int) {
         isPageRefreshing = true
+        appStateStorage.toogleLoading()
         let parameters: [String: Any] = [
             "client_id" : AppConst.clinetid,
             "order_by": "latest",
@@ -84,6 +87,7 @@ struct HomeScreen: View {
                 pageNumber = pageNumber + 1
             }
             newPhotos.append(contentsOf: data)
+            appStateStorage.toogleLoading()
         }
     }
 }

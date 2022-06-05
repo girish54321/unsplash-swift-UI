@@ -19,5 +19,12 @@ class AlertViewModel: ObservableObject {
 }
 
 class AppStateStorage: ObservableObject {
-    @Published var selectedUser: UserListResponseData?
+    //    @Published var selectedUser: UserListResponseData?
+    @Published var isLoadingViewShowing : Bool = false
+    
+    func toogleLoading()  {
+        withAnimation {
+            isLoadingViewShowing.toggle()
+        }
+    }
 }

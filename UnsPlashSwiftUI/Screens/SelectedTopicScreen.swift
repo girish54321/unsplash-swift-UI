@@ -18,6 +18,8 @@ struct SelectedTopicScreen: View {
     @State var isPageRefreshing : Bool = false
     @State var didAppear = false
     
+    @EnvironmentObject var appStateStorage: AppStateStorage
+    
     var body: some View {
         ScrollView {
             GeometryReader { geometry in
@@ -82,6 +84,7 @@ struct SelectedTopicScreen: View {
     
     func getPhotos(page:Int) {
         isPageRefreshing = true
+        appStateStorage.toogleLoading()
         let parameters: [String: Any] = [
             "client_id" : AppConst.clinetid,
             "page":String(page),
@@ -98,6 +101,7 @@ struct SelectedTopicScreen: View {
                 isPageRefreshing = false
                 pageNumber = pageNumber + 1
             }
+            appStateStorage.toogleLoading()
         }
     }
 }

@@ -14,6 +14,8 @@ struct TopicsScreen: View {
     @State var topicsData : [TopicResponseElement] = []
     @State var didAppear: Bool = false
     
+    @EnvironmentObject var appStateStorage: AppStateStorage
+    
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
@@ -53,6 +55,7 @@ struct TopicsScreen: View {
     }
     
     func getTopicsPhotos() {
+        appStateStorage.toogleLoading()
         let parameters: [String: Any] = [
             "client_id" : AppConst.clinetid,
             "per_page" : 50
@@ -63,6 +66,7 @@ struct TopicsScreen: View {
                 return
             }
             topicsData.append(contentsOf: data)
+            appStateStorage.toogleLoading()
         }
     }
 }

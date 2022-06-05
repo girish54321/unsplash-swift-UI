@@ -16,6 +16,8 @@ struct HotImageScreen: View {
     @State var isPageRefreshing : Bool = false
     @State var didAppear = false
     
+    @EnvironmentObject var appStateStorage: AppStateStorage
+    
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
@@ -58,6 +60,7 @@ struct HotImageScreen: View {
     }
     
     func getHotPhotos(page:Int) {
+        appStateStorage.toogleLoading()
         let parameters: [String: Any] = [
             "client_id" : AppConst.clinetid,
             "order_by": "popular",
@@ -74,6 +77,7 @@ struct HotImageScreen: View {
                 pageNumber = pageNumber + 1
             }
             hotImages.append(contentsOf: data)
+            appStateStorage.toogleLoading()
         }
     }
     

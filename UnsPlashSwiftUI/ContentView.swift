@@ -7,23 +7,14 @@
 
 import SwiftUI
 
-struct RedView: View {
-    var body: some View {
-        Color.red
-    }
-}
-struct BlueView: View {
-    var body: some View {
-        Color.blue
-    }
-}
-
-
-
 struct ContentView: View {
+    
+    @EnvironmentObject var appStateStorage: AppStateStorage
+    
     var body: some View {
         TabView {
             HomeScreen()
+//            Text("Home")
              .tabItem {
                 Image(systemName: "house.fill")
                 Text("Home")
@@ -43,6 +34,13 @@ struct ContentView: View {
                  Image(systemName: "square.and.arrow.down.fill")
                  Text("Saved")
            }
+        }
+        .overlay {
+            if appStateStorage.isLoadingViewShowing == true {
+                LoadingIndicator()
+            } else {
+                VStack{}
+            }
         }
     }
 }

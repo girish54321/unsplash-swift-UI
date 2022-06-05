@@ -13,6 +13,7 @@ struct UnsPlashSwiftUIApp: App {
         WindowGroup {
             ContentView()
             .environmentObject(AlertViewModel())
+            .environmentObject(AppStateStorage())
         }
     }
 }
