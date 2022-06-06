@@ -6,34 +6,35 @@
 //
 
 import SwiftUI
+import AlertToast
 
 struct ContentView: View {
     
     @EnvironmentObject var appStateStorage: AppStateStorage
+    @EnvironmentObject var viewModel: AlertViewModel
     
     var body: some View {
         TabView {
             HomeScreen()
-//            Text("Home")
-             .tabItem {
-                Image(systemName: "house.fill")
-                Text("Home")
-           }
+                .tabItem {
+                    Image(systemName: "house.fill")
+                    Text("Home")
+                }
             HotImageScreen()
-             .tabItem {
-                Image(systemName: "flame.fill")
-                Text("Tranding")
-          }
+                .tabItem {
+                    Image(systemName: "flame.fill")
+                    Text("Tranding")
+                }
             TopicsScreen()
-              .tabItem {
-                 Image(systemName: "menucard.fill")
-                 Text("Topices")
-           }
+                .tabItem {
+                    Image(systemName: "menucard.fill")
+                    Text("Topices")
+                }
             SavedImagesScreen()
-              .tabItem {
-                 Image(systemName: "square.and.arrow.down.fill")
-                 Text("Saved")
-           }
+                .tabItem {
+                    Image(systemName: "square.and.arrow.down.fill")
+                    Text("Saved")
+                }
         }
         .overlay {
             if appStateStorage.isLoadingViewShowing == true {
@@ -41,6 +42,9 @@ struct ContentView: View {
             } else {
                 VStack{}
             }
+        }
+        .toast(isPresenting: $viewModel.show){
+            viewModel.alertToast
         }
     }
 }

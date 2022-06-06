@@ -18,29 +18,41 @@ struct SavedImagesScreen: View {
     let fileManager = FileManager.default
     let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     @StateObject private var image = FetchImage()
+    
     var body: some View {
         NavigationView {
-            ScrollView {
-                WaterfallGrid(savedImages,id: \.self) { item in
-                    NavigationLink(destination:
-                                    SelectedImage(isLocalImage: true, localImageURL: item)
-                    ) {
-                        AppNetworkImage(imageUrl: "\(item)" )
+                ScrollView {
+                    WaterfallGrid(savedImages,id: \.self) { item in
+                        NavigationLink(destination:
+                                        SelectedImage(isLocalImage: true, localImageURL: item)
+                        ) {
+                            AppNetworkImage(imageUrl: "\(item)" )
+                        }
+                    }
+                    .gridStyle(
+                        columnsInPortrait: 2,
+                        columnsInLandscape: 3,
+                        spacing: 8,
+                        animation: .linear(duration: 0.5)
+                    )
+                    .scrollOptions(direction: .vertical)
+                    .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 8))
+                    .onAppear{
+                        loadSavedImages()
+                    }
+                    if savedImages.count == 0 {
+                        VStack {
+                            Image("nodata")
+                                .imageModifier()
+                            .transition(.opacity)
+                            Text("No Images Found!")
+                                .font(.title2)
+                        }
+                    } else {
+                        Text("")
                     }
                 }
-                .gridStyle(
-                    columnsInPortrait: 2,
-                    columnsInLandscape: 3,
-                    spacing: 8,
-                    animation: .linear(duration: 0.5)
-                )
-                .scrollOptions(direction: .vertical)
-                .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 8))
-                .onAppear{
-                    loadSavedImages()
-                }
-            }
-            .navigationTitle("Saved Images")
+                .navigationTitle("Saved Images")
         }
     }
     
@@ -50,7 +62,6 @@ struct SavedImagesScreen: View {
             let directoryContents = try FileManager.default.contentsOfDirectory(at: documentsUrl, includingPropertiesForKeys: nil)
             savedImages.removeAll()
             savedImages = directoryContents
-            print(directoryContents[0])
         } catch {
             print(error)
         }

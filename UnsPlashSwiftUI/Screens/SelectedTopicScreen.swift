@@ -15,25 +15,26 @@ struct SelectedTopicScreen: View {
     @EnvironmentObject var appStateStorage: AppStateStorage
     
     var body: some View {
-        ScrollView {
-            GeometryReader { geometry in
-                ZStack {
-                    if geometry.frame(in: .global).minY <= 0 {
-                        LazyImage(source: selectedTopic?.coverPhoto?.urls?.small ?? "")
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: geometry.size.width, height: geometry.size.height)
-                            .offset(y: geometry.frame(in: .global).minY/9)
-                            .clipped()
-                    } else {
-                        LazyImage(source: selectedTopic?.coverPhoto?.urls?.small ?? "")
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: geometry.size.width, height: geometry.size.height + geometry.frame(in: .global).minY)
-                            .clipped()
-                            .offset(y: -geometry.frame(in: .global).minY)
+        VStack {
+            ScrollView {
+                GeometryReader { geometry in
+                    ZStack {
+                        if geometry.frame(in: .global).minY <= 0 {
+                            LazyImage(source: selectedTopic?.coverPhoto?.urls?.small ?? "")
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: geometry.size.width, height: geometry.size.height)
+                                .offset(y: geometry.frame(in: .global).minY/9)
+                                .clipped()
+                        } else {
+                            LazyImage(source: selectedTopic?.coverPhoto?.urls?.small ?? "")
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: geometry.size.width, height: geometry.size.height + geometry.frame(in: .global).minY)
+                                .clipped()
+                                .offset(y: -geometry.frame(in: .global).minY)
+                        }
                     }
                 }
-            }
-            .frame(height: 340)
+                .frame(height: 240)
                 WaterfallGrid(newPhotos) { item in
                     NavigationLink(destination:
                                     SelectedImage(image: SelectedImageClass(id: item.id, createdAt: item.createdAt, updatedAt: item.updatedAt, promotedAt: item.promotedAt, width: item.width, height: item.height, color: item.color, blur_hash: item.blur_hash, homeImageDescription: item.homeImageDescription, altDescription: item.altDescription, description: item.description, urls: item.urls, user: item.user, categories: item.categories))
@@ -49,36 +50,37 @@ struct SelectedTopicScreen: View {
                 )
                 .scrollOptions(direction: .vertical)
                 .padding(EdgeInsets(top: 16, leading: 8, bottom: 16, trailing: 8))
-            if isPageRefreshing == true {
-                Text("")
-            } else {
-                Button("Load More") {
+                if isPageRefreshing == true {
+                    Text("")
+                } else {
+                    Button("Load More") {
+                        getPhotos(page: pageNumber)
+                    }
+                    .padding()
+                }
+            }
+            .onAppear(perform: {
+                if !didAppear {
                     getPhotos(page: pageNumber)
                 }
-                .padding()
-            }
+                didAppear = true
+            })
+//            .edgesIgnoringSafeArea(.top)
+            .navigationTitle(selectedTopic?.title ?? "Title")
+            .navigationBarItems(
+                trailing:
+                    NavigationLink(destination:
+                                    SearchImageScreen()
+                                  ) {
+                                      Image(systemName: "magnifyingglass")
+                                  }
+            )
         }
-        .onAppear(perform: {
-            if !didAppear {
-                getPhotos(page: pageNumber)
-            }
-            didAppear = true
-        })
-        .edgesIgnoringSafeArea(.top)
-        .navigationTitle(selectedTopic?.title ?? "Title")
-        .navigationBarItems(
-            trailing:
-                NavigationLink(destination:
-                                SearchImageScreen()
-                              ) {
-                                  Image(systemName: "magnifyingglass")
-                              }
-        )
     }
     
     func getPhotos(page:Int) {
         isPageRefreshing = true
-        appStateStorage.toogleLoading()
+        //        appStateStorage.toogleLoading()
         let parameters: [String: Any] = [
             "client_id" : AppConst.clinetid,
             "page":String(page),
@@ -95,7 +97,7 @@ struct SelectedTopicScreen: View {
                 isPageRefreshing = false
                 pageNumber = pageNumber + 1
             }
-            appStateStorage.toogleLoading()
+            //            appStateStorage.toogleLoading()
         }
     }
 }

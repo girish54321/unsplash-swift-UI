@@ -85,9 +85,6 @@ struct SelectedImage: View {
                     }
                 }
         )
-        .toast(isPresenting: $viewModel.show){
-            viewModel.alertToast
-        }
     }
     
     func saveToImageApp() {

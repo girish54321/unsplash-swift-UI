@@ -75,9 +75,6 @@ struct DownloadImage: View {
                 VStack{}
             }
         }
-        .toast(isPresenting: $viewModel.show){
-            viewModel.alertToast
-        }
     }
     
     func screecesMessage () {
