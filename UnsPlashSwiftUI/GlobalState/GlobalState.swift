@@ -11,7 +11,14 @@ import AlertToast
 class AlertViewModel: ObservableObject {
     
     @Published var show = false
-    @Published var alertToast = AlertToast(type: .regular, title: "SOME TITLE"){
+//    @Published var alertToast = AlertToast(type: .regular, title: "SOME TITLE"){
+//        didSet {
+//            show.toggle()
+//        }
+//    }
+    
+    @Published var title: String = "Normal"
+    @Published var subTitle: String = "Normal" {
         didSet {
             show.toggle()
         }
@@ -19,7 +26,6 @@ class AlertViewModel: ObservableObject {
 }
 
 class AppStateStorage: ObservableObject {
-    //    @Published var selectedUser: UserListResponseData?
     @Published var isLoadingViewShowing : Bool = false
     
     func toogleLoading()  {

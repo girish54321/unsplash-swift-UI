@@ -79,12 +79,11 @@ struct DownloadImage: View {
     
     func screecesMessage () {
         isDownloading = false
-        viewModel.alertToast = AlertToast(
-            displayMode: .banner(.pop),
-            type: .complete(.accentColor),
-            title: "Image Saved",
-            subTitle: "Image is saved on your Camera Roll")
-        presentationMode.wrappedValue.dismiss()
+        viewModel.title = "Image Saved"
+        viewModel.subTitle = "Image is saved on your Camera Roll"
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            presentationMode.wrappedValue.dismiss()
+        }
     }
     
     // MARK: Save to App

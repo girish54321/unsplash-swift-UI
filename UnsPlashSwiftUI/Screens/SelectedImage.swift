@@ -98,12 +98,8 @@ struct SelectedImage: View {
         let imageSever = ImageSaver()
         
         imageSever.successHandler = {
-            print("Go For It")
-            viewModel.alertToast = AlertToast(
-                displayMode: .banner(.pop),
-                type: .error(.blue),
-                title: "Image Saved",
-                subTitle: "Image is saved on your Camera Roll")
+            viewModel.title = "Image Saved"
+            viewModel.subTitle = "Image is saved on your Camera Roll"
         }
         imageSever.errorsHandler = {
             print("\($0.localizedDescription)")

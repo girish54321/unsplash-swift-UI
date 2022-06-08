@@ -7,6 +7,8 @@
 
 import SwiftUI
 import AlertToast
+import SPAlert
+import ToastUI
 
 struct ContentView: View {
     
@@ -40,12 +42,34 @@ struct ContentView: View {
             if appStateStorage.isLoadingViewShowing == true {
                 LoadingIndicator()
             } else {
-                VStack{}
+                EmptyView()
             }
         }
-        .toast(isPresenting: $viewModel.show){
-            viewModel.alertToast
+        .toast(isPresented: $viewModel.show, dismissAfter: 2.0) {
+            print("Toast dismissed")
+        } content: {
+            VStack {
+                Spacer()
+                AppToastView(viewModel: viewModel)
+                    .environmentObject(AlertViewModel())
+            }
         }
+//        .toast(isPresenting: $viewModel.show){
+//            viewModel.alertToast
+//        }
+//        .SPAlert(
+//            isPresent: $viewModel.show,
+//            title: "Alert title",
+//            message: "Alert message",
+//            duration: 2.0,
+//            dismissOnTap: true,
+//            preset: .done,
+//            haptic: .success,
+//            layout: .init(),
+//            completion: {
+//                print("Alert is destory")
+//            })
+        
     }
 }
 

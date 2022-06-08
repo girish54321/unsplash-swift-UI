@@ -8,6 +8,8 @@ PODS:
   - NukeUI (0.8.0):
     - Gifu (~> 3.0)
     - Nuke (~> 10.5)
+  - SPAlert (4.2.0)
+  - ToastUI (2.0.0)
   - WaterfallGrid (1.0.1)
 
 DEPENDENCIES:
@@ -16,6 +18,8 @@ DEPENDENCIES:
   - AlertToast
   - BottomSheetSwiftUI
   - NukeUI
+  - SPAlert
+  - ToastUI
   - WaterfallGrid (~> 1.0.0)
 
 SPEC REPOS:
@@ -27,6 +31,8 @@ SPEC REPOS:
     - Gifu
     - Nuke
     - NukeUI
+    - SPAlert
+    - ToastUI
     - WaterfallGrid
 
 SPEC CHECKSUMS:
@@ -37,8 +43,10 @@ SPEC CHECKSUMS:
   Gifu: 416d4e38c4c2fed012f019e0a1d3ffcb58e5b842
   Nuke: 279f17a599fd1c83cf51de5e0e1f2db143a287b0
   NukeUI: 6e99837a8d066c93baa4262692d9ea9ffbc863ba
+  SPAlert: 735da1f16a887e294719217572ce1f936d8c8782
+  ToastUI: 391eb9a1cc15e7ef4b79ee112e4a0b969259154f
   WaterfallGrid: 0554a759d9a8aa136fc1769480ddb01bc6fb94b9
 
-PODFILE CHECKSUM: 78f97a630b1d973ccf08f5801ef0c9e2716debe6
+PODFILE CHECKSUM: f11f2d493fda590b2a04fa472e317fb719df5f17
 
 COCOAPODS: 1.11.2

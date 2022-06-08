@@ -22,6 +22,7 @@
 		F4525EDA281EA49B008C52DF /* HomeImageRespone.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4525ED9281EA49B008C52DF /* HomeImageRespone.swift */; };
 		F4525EDF281EB86F008C52DF /* AppNetworkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4525EDE281EB86F008C52DF /* AppNetworkImage.swift */; };
 		F4525EE1281EB8A4008C52DF /* UiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4525EE0281EB8A4008C52DF /* UiHelper.swift */; };
+		F46530D52850D562009FA89D /* AppToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46530D42850D562009FA89D /* AppToastView.swift */; };
 		F48044CE2821225B004AAD86 /* DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48044CD2821225B004AAD86 /* DownloadImage.swift */; };
 		F48044D0282126DE004AAD86 /* DownloadListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48044CF282126DE004AAD86 /* DownloadListItem.swift */; };
 		F48044D22821340A004AAD86 /* DownlodClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48044D128213409004AAD86 /* DownlodClass.swift */; };
@@ -63,6 +64,7 @@
 		F4525ED9281EA49B008C52DF /* HomeImageRespone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeImageRespone.swift; sourceTree = "<group>"; };
 		F4525EDE281EB86F008C52DF /* AppNetworkImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNetworkImage.swift; sourceTree = "<group>"; };
 		F4525EE0281EB8A4008C52DF /* UiHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiHelper.swift; sourceTree = "<group>"; };
+		F46530D42850D562009FA89D /* AppToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppToastView.swift; sourceTree = "<group>"; };
 		F48044CD2821225B004AAD86 /* DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadImage.swift; sourceTree = "<group>"; };
 		F48044CF282126DE004AAD86 /* DownloadListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadListItem.swift; sourceTree = "<group>"; };
 		F48044D128213409004AAD86 /* DownlodClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownlodClass.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				F49363CB28426EEE009AA446 /* LoadingView.swift */,
 				F4C4E8E4284B4EF8000147D9 /* LoadingListView.swift */,
 				F4C4E8E6284B54F2000147D9 /* LoadingIndicator.swift */,
+				F46530D42850D562009FA89D /* AppToastView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				F4525EC0281E8F44008C52DF /* UnsPlashSwiftUIApp.swift in Sources */,
 				F48044D42821431B004AAD86 /* SearchImageScreen.swift in Sources */,
 				F4AA9C44281FF9CE004805EA /* SelctedImageModal.swift in Sources */,
+				F46530D52850D562009FA89D /* AppToastView.swift in Sources */,
 				F4C5E56928315107004FFE7C /* TopicsScreen.swift in Sources */,
 				F4497A972839119E00CFD0A6 /* SavedImagesScreen.swift in Sources */,
 				F4497A95283908D400CFD0A6 /* FileManager.swift in Sources */,

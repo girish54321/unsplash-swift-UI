@@ -8,6 +8,8 @@
 import SwiftUI
 import Alamofire
 import WaterfallGrid
+import SPAlert
+import AlertToast
 
 struct HomeScreen: View {
     
@@ -15,6 +17,10 @@ struct HomeScreen: View {
     @State var pageNumber : Int = 1
     @State var isPageRefreshing : Bool = false
     @State var didAppear = false
+    
+    @State var showAlert: Bool = false
+    
+    @EnvironmentObject var viewModel: AlertViewModel
     
     @StateObject var homeImageVm = HomeScreenViewModel()
     
@@ -65,6 +71,7 @@ struct HomeScreen: View {
                                       Image(systemName: "magnifyingglass")
                                   }
             )
+            
         }
     }
     
