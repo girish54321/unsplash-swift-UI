@@ -12,6 +12,8 @@ struct UnsPlashSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+            .environmentObject(AlertViewModel())
+            .environmentObject(AppStateStorage())
         }
     }
 }

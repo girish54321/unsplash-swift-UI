@@ -1,0 +1,6 @@
+framework module NukeUI {
+  umbrella header "NukeUI-umbrella.h"
+
+  export *
+  module * { export * }
+}

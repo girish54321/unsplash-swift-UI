@@ -13,7 +13,6 @@ extension Image {
         self
             .resizable()
             .scaledToFit()
-//            .clipShape(Circle())
     }
     
     func iconModifier() -> some View {
