@@ -1,6 +1,6 @@
 # Unsplash-swift-UI
 
-Welcome to the open source Unsplash app repository! This app is built using SwiftUI and Alamofire, and follows the Model-View-ViewModel (MVVM) design pattern. With this app, users can take advantage of the following features:
+Welcome to the open source Unsplash app repository! This app is built using SwiftUI and Alamofire, and follows the Model-View-ViewModel (MVVM) design pattern. 
 
 <img width="1604"  src="appimages/banner.png?raw=true">
 
