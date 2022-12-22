@@ -2,6 +2,14 @@
 
 Welcome to the open source Unsplash app repository! This app is built using SwiftUI and Alamofire, and follows the Model-View-ViewModel (MVVM) design pattern. With this app, users can take advantage of the following features:
 
+<img width="1604"  src="appimages/banner.png?raw=true">
+
+
+# ScreenShots
+
+<img width="1604"  src="appimages/screenShots.png?raw=true">
+
+
 # Features
 
 ## Search images
@@ -17,12 +25,6 @@ The app enables users to download images from Unsplash to their device for offli
 
 ## Save to local storage 
 Users can save images to their device's local storage for easy access in the future.
-<img width="1604"  src="appimages/banner.png?raw=true">
-
-
-# ScreenShots
-
-<img width="1604"  src="appimages/screenShots.png?raw=true">
 
 ## Contributions 
 
