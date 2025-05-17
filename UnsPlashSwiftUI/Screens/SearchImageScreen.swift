@@ -82,6 +82,7 @@ struct SearchImageScreen: View {
             "page": String(page),
             "per_page": "30"
         ]
+        print(AppConst.baseurl+AppConst.search)
         AF.request(AppConst.baseurl+AppConst.search,method: .get,parameters: parameters).validate().responseDecodable(of: SearchImageResponse.self) { (response) in
             print(response)
             guard let data = response.value else {

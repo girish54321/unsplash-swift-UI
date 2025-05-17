@@ -13,7 +13,11 @@ public class GIFImageView: UIImageView, GIFAnimatable {
   /// - parameter layer: The delegated layer.
   override public func display(_ layer: CALayer) {
     if UIImageView.instancesRespond(to: #selector(display(_:))) {
-        super.display(layer)
+        if #available(iOS 10.0, *) {
+            super.display(layer)
+        } else {
+            // Fallback on earlier versions
+        }
     }
     updateImageIfNeeded()
   }
